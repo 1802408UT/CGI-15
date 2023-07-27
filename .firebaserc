@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cgi-online": {
+      "hosting": {
+        "CGI": [
+          "cgi-online"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cgi-online"
+  }
+}
