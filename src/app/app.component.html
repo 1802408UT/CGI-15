@@ -11,22 +11,22 @@
                     <li class="sidebar-header">
                         Paginas
                     </li>
-                    <li class="sidebar-item active">
+                    <li class="sidebar-item" [ngClass]="getClassForRoute('/dashboard')">
                         <a class="sidebar-link" routerLink="/dashboard">
                             <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    <li class="sidebar-item" [ngClass]="getClassForRoute('/login')">
                         <a class="sidebar-link" routerLink="/login">
                             <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Login</span>
                         </a>
                     </li>
-                    <!--<li class="sidebar-item">
-                        <a class="sidebar-link" routerLink="/calendario">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Calendario</span>
+                    <li class="sidebar-item" [ngClass]="getClassForRoute('/admin/usuarios')">
+                        <a class="sidebar-link" routerLink="/admin/usuarios">
+                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Usuarios</span>
                         </a>
                     </li>
-                -->
+
                 </ul>
                 <!--
                     <li class="sidebar-item active">
