@@ -9,6 +9,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatTableModule} from '@angular/material/table';
 
+
 const myModules= [
     MatSidenavModule,
     MatButtonModule,
@@ -17,7 +18,7 @@ const myModules= [
     MatBadgeModule,
     MatMenuModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
 ];
 
 @NgModule({

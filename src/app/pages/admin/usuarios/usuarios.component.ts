@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder} from '@angular/forms';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Usuarios } from 'src/app/shared/models/usuarios.model';
 
@@ -7,8 +8,14 @@ import { Usuarios } from 'src/app/shared/models/usuarios.model';
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.scss']
 })
+
 export class UsuariosComponent {
-  User: Usuarios = {
+  usuarioForm: FormGroup;
+/*
+  userForm!: FormGroup;
+  
+  user: Usuarios = {
+    id: '',
     first_name: '',
     second_name: '',
     first_apellido: '',
@@ -19,43 +26,35 @@ export class UsuariosComponent {
     area: ''
   };
   submitted = false;
-
-  constructor(private userservice: UsuariosService) { }
-
-  saveTutorial(): void {
-    const data = {
-      first_name: this.User.first_name,
-      second_name: this.User.second_name,
-      first_apellido: this.User.first_apellido,
-      second_apellido: this.User.second_apellido,
-      birthday: this.User.birthday,
-      email: this.User.email,
-      password: this.User.password,
-      area: this.User.area
-    };
-
-    this.userservice.create(data)
+  */
+  constructor(private userservice: UsuariosService, private fb: FormBuilder) {
+    this.usuarioForm = this.fb.group({
+      id: [''],
+      first_name: ['', Validators.required],
+      second_name: [''],
+      first_apellido: ['', Validators.required],
+      second_apellido: [''],
+      birthday: [''],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      area: ['']
+    });
+   }
+   submitForm() {
+    if (this.usuarioForm.valid) {
+      const usuarioData: Usuarios = this.usuarioForm.value;
+      // Aquí puedes enviar los datos del usuario a través de un servicio
+      this.userservice.create(usuarioData)
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.submitted = true;
         },
-        error: (e) => console.error(e)
-      });
-  }
+        error: (err) => {
+          console.error(err);
+        }
+      })
 
-  newTutorial(): void {
-    this.submitted = false;
-    this.User = {
-      first_name: '',
-      second_name: '',
-      first_apellido: '',
-      second_apellido: '',
-      birthday: '',
-      email: '',
-      password: '',
-      area: ''
-    };
-  }
 
+    }
+  }
 }

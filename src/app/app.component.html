@@ -21,9 +21,17 @@
                             <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Login</span>
                         </a>
                     </li>
-                    <li class="sidebar-item" [ngClass]="getClassForRoute('/admin/usuarios')">
-                        <a class="sidebar-link" routerLink="/admin/usuarios">
-                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Usuarios</span>
+                    <li class="sidebar-header">
+                        Usuarios
+                    </li>
+                    <li class="sidebar-item" [ngClass]="getClassForRoute('/usuarios-crear')">
+                        <a class="sidebar-link" routerLink="/usuarios-crear">
+                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle"> Crear Usuarios</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item" [ngClass]="getClassForRoute('/usuarios')">
+                        <a class="sidebar-link" routerLink="/usuarios">
+                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle"> Ver Usuarios</span>
                         </a>
                     </li>
 

@@ -1,0 +1,85 @@
+<main class="content">
+    <div class="container-fluid p-0">
+
+        <h1 class="h3 mb-3"><strong>Usuarios</strong> Dashboard</h1>
+        <div class="das">
+            <table mat-table [dataSource]="dataSource" martSort class="mat-elevation-z8">
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>No.</th>
+                    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="first_name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.first_name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="second_name">
+                    <th mat-header-cell *matHeaderCellDef> Segundo Nombre </th>
+                    <td mat-cell *matCellDef="let element"> {{element.second_name}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="first_apellido">
+                    <th mat-header-cell *matHeaderCellDef> Primer Apellido</th>
+                    <td mat-cell *matCellDef="let element"> {{element.first_apellido}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="second_apellido">
+                    <th mat-header-cell *matHeaderCellDef> Segundo Apellido </th>
+                    <td mat-cell *matCellDef="let element"> {{element.second_apellido}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="birthday">
+                    <th mat-header-cell *matHeaderCellDef> Fecha de Nacimiento </th>
+                    <td mat-cell *matCellDef="let element"> {{element.birthday}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="active">
+                    <th mat-header-cell *matHeaderCellDef> Activo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.active}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> Correo Electronico </th>
+                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="password">
+                    <th mat-header-cell *matHeaderCellDef> Contraseña </th>
+                    <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="area">
+                    <th mat-header-cell *matHeaderCellDef> Área </th>
+                    <td mat-cell *matCellDef="let element"> {{element.area}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="rol">
+                    <th mat-header-cell *matHeaderCellDef> Rol </th>
+                    <td mat-cell *matCellDef="let element"> {{element.rol}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="img">
+                    <th mat-header-cell *matHeaderCellDef> Img </th>
+                    <td mat-cell *matCellDef="let element"> {{element.img}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="createdAt">
+                    <th mat-header-cell *matHeaderCellDef> createdAt </th>
+                    <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="updatedAt">
+                    <th mat-header-cell *matHeaderCellDef> updatedAt </th>
+                    <td mat-cell *matCellDef="let element"> {{element.updatedAt}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+    </div>
+</main>

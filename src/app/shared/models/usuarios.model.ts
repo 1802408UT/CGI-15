@@ -5,7 +5,12 @@ export class Usuarios {
     first_apellido?: string;
     second_apellido?: string;
     birthday?: string;
+    active?: boolean;
     email? : string;
     password?: string;
     area?: string;
+    rol?: string;
+    img?: string;
+    createdAt?: string;
+    updatedAt?: string;
   }
