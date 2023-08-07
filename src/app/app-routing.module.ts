@@ -8,7 +8,7 @@ import { UsuariosListComponent } from './pages/admin/usuarios-list/usuarios-list
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'usuarios-crear', component: UsuariosComponent},
+  { path: 'crear-usuarios', component: UsuariosComponent},
   { path: 'usuarios', component: UsuariosListComponent}
 ];
 

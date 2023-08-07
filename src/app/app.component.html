@@ -24,14 +24,27 @@
                     <li class="sidebar-header">
                         Usuarios
                     </li>
-                    <li class="sidebar-item" [ngClass]="getClassForRoute('/usuarios-crear')">
-                        <a class="sidebar-link" routerLink="/usuarios-crear">
+                    <li class="sidebar-item" [ngClass]="getClassForRoute('/crear-usuarios')">
+                        <a class="sidebar-link" routerLink="/crear-usuarios">
                             <i class="align-middle" data-feather="sliders"></i> <span class="align-middle"> Crear Usuarios</span>
                         </a>
                     </li>
                     <li class="sidebar-item" [ngClass]="getClassForRoute('/usuarios')">
                         <a class="sidebar-link" routerLink="/usuarios">
                             <i class="align-middle" data-feather="sliders"></i> <span class="align-middle"> Ver Usuarios</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-header">
+                        Proyectos
+                    </li>
+                    <li class="sidebar-item" [ngClass]="getClassForRoute('/#')">
+                        <a class="sidebar-link" routerLink="/#">
+                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle"> Crear Proyectos</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item" [ngClass]="getClassForRoute('/#')">
+                        <a class="sidebar-link" routerLink="/#">
+                            <i class="align-middle" data-feather="sliders"></i> <span class="align-middle"> Ver Proyectos</span>
                         </a>
                     </li>
 

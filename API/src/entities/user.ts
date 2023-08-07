@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, BaseEntity } from "typeorm"
-import { MinLength, MaxLength, IsOptional, isEmail } from "class-validator";
+import { MinLength, MaxLength, isEmail, IsNotEmpty } from "class-validator";
 
 
 @Entity()
@@ -8,6 +8,7 @@ export class User extends BaseEntity{
     id: number;
 
     @Column()
+    @IsNotEmpty()
     @MinLength(3)
     @MaxLength(10)
     first_name: string;
@@ -18,16 +19,19 @@ export class User extends BaseEntity{
     second_name: string;
     
     @Column()
-    @MinLength(0)
+    @IsNotEmpty()
+    @MinLength(2)
     @MaxLength(10)
     first_apellido: string;
 
     @Column()
-    @MinLength(0)
+    @IsNotEmpty()
+    @MinLength(2)
     @MaxLength(10)
     second_apellido: string;
 
     @Column()
+    @IsNotEmpty()
     @MinLength(9)
     birthday: string;
 
@@ -35,6 +39,7 @@ export class User extends BaseEntity{
     active: boolean;
 
     @Column()
+    @IsNotEmpty()
     email : string;
 
     @Column()

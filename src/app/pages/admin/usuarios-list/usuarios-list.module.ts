@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsuariosListComponent } from './usuarios-list.component';
-import {MatTableModule} from '@angular/material/table';
+import { MaterialModule } from 'src/app/material.module';
 
 
 @NgModule({
   declarations: [UsuariosListComponent],
   imports: [CommonModule, 
-    MatTableModule
+    MaterialModule
 ], 
 })
 export class UsuariosListModule { }
