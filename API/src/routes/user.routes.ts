@@ -3,10 +3,10 @@ import { createUser, deleteUser, getByUser, getUser, updateUser } from '../contr
 
 const router = Router()
 
-router.post('/users', createUser);
-router.get('/users', getUser);
-router.get('/users/:id', getByUser);
-router.put('/users/:id', updateUser);
-router.delete('/users/:id', deleteUser);
+router.post('/', createUser);
+router.get('/', getUser);
+router.get('/:id', getByUser);
+router.put('/:id', updateUser);
+router.delete('/:id', deleteUser);
 
 export default router;
