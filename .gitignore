@@ -46,3 +46,7 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+# Portable
+/CGI-15-win32-x64
+

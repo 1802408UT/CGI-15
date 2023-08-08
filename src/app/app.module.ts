@@ -33,7 +33,8 @@ import { UsuariosListModule } from './pages/admin/usuarios-list/usuarios-list.mo
     HttpClientModule,
     MatInputModule,
     UsuariosModule,
-    UsuariosListModule
+    UsuariosListModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
