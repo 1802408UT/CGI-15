@@ -1,0 +1,63 @@
+<div class="container d-flex flex-column">
+    <div class="row vh-100">
+        <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+            <div class="d-table-cell align-middle">
+
+                <div class="text-center mt-4">
+                    <h1 class="h2">Creación de Proyectos</h1>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="m-sm-4">
+                            <form [formGroup]="usuarioForm" (ngSubmit)="submitForm()">
+                                <div class="mb-3">
+                                    <label class="form-label">ID del Proyecto*</label>
+                                    <input class="form-control form-control-lg" type="text" placeholder="Ingresa el ID" matInput formControlName="id" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Nombre del Proyecto*</label>
+                                    <input class="form-control form-control-lg" type="text" placeholder="Ingresa el nombre" matInput formControlName="nombre" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Descripcion</label>
+                                    <input class="form-control form-control-lg" type="text" placeholder="Ingresa la descripcion" matInput formControlName="descripcion" required>
+                                </div>
+                                <div class="text-center mt-3">
+                                    <button class="btn btn-lg btn-primary" mat-raised-button color="primary" type="submit">Guardar</button>
+                                    <!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="submitted">
+                    <h4>You submitted successfully!</h4>
+                    <button class="btn btn-success" (click)="newTutorial()">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="submit-form">
+    <div *ngIf="!submitted">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" required [(ngModel)]="tutorial.title" name="title" />
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input class="form-control" id="description" required [(ngModel)]="tutorial.description" name="description" />
+        </div>
+
+        <button (click)="saveTutorial()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+        <h4>You submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newTutorial()">Add</button>
+    </div>
+</div>
+-->

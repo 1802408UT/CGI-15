@@ -13,10 +13,8 @@ import { Router } from '@angular/router';
 export class UsuariosListComponent {
 
   //displayedColumns: string[] = ['id', 'first_name', 'second_name', 'first_apellido', 'second_apellido','birthday','active', 'email', 'password', 'area', 'rol', 'img', 'createdAt', 'updatedAt'];
-  displayedColumns: string[] = ['id', 'first_name', 'second_name', 'first_apellido', 'second_apellido','birthday','active', 'email', 'area', 'rol', 'actions'];
+  displayedColumns: string[] = ['id', 'nombre', 'estado', 'first_apellido', 'second_apellido','birthday','active', 'email', 'area', 'rol', 'actions'];
   dataSource = new MatTableDataSource;
-
-  opcion = true;
 
   usuarios?: Usuarios[];
 

@@ -1,1 +1,126 @@
-<p>ver-proyectos works!</p>
+<main class="content">
+    <div class="container-fluid p-0">
+
+        <h1 class="h3 mb-3"><strong>Proyectos</strong></h1>
+        <a mat-raised-button>Agregar-proyectos</a>
+        <div class="das container-fluid">
+            <table mat-table [dataSource]="dataSource" martSort class="mat-elevation-z8 table table-hover my-0">
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="nombre">
+                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="descripcion">
+                    <th mat-header-cell *matHeaderCellDef> Descripcion </th>
+                    <td mat-cell *matCellDef="let element"> {{element.descripcion}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="estado">
+                    <th mat-header-cell *matHeaderCellDef> Activo </th>
+                    <td mat-cell *matCellDef="let element"><span class="badge" [ngClass]="{'bg-success': element.estado=== 'Activo', 'bg-warning' : element.estado === 'activo' }">{{element.estado}}</span></td>
+                </ng-container>
+
+                <ng-container matColumnDef="date_log">
+                    <th mat-header-cell *matHeaderCellDef> date_log </th>
+                    <td mat-cell *matCellDef="let element"> {{element.date_log.seconds*1000 | date}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="date_update">
+                    <th mat-header-cell *matHeaderCellDef> date_update </th>
+                    <td mat-cell *matCellDef="let element"> {{element.date_update.seconds*1000 | date}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="table-button-row">
+                            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                                <mat-icon>more_vert</mat-icon>
+                              </button>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item routerLink="proyectos/detalles-proyectos-{{ student.$key }}">
+                                    <mat-icon>autorenew</mat-icon>
+                                    <span>Actualizar</span>
+                                  </button>
+                                <button mat-menu-item>
+                                  <mat-icon>delete</mat-icon>
+                                  <span>Eliminar</span>
+                                </button>
+                            </mat-menu>
+                        </div>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+    </div>
+</main>
+<!--
+                <table class="table table-hover my-0" *ngFor="let tutorial of tutorials; let i = index" [class.active]="i == currentIndex" (click)="setActiveTutorial(tutorial, i)">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripcion</th>
+                            <th class="d-none d-xl-table-cell">Fecha de Agregado</th>
+                            <th class="d-none d-xl-table-cell">Fecha de Actualizadp</th>
+                            <th>Estatus</th>
+                            <th class="d-none d-md-table-cell">Asignado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ tutorial.id }}</td>
+                            <td>{{tutorial.descripcion}}</td>
+                            <td class="d-none d-xl-table-cell">{{tutorial.date_log}}</td>
+                            <td class="d-none d-xl-table-cell">{{tutorial.date_update}}</td>
+                            <td><span class="badge bg-success">{{tutorial.estado}}</span></td>
+                            <td class="d-none d-md-table-cell">Vanessa Tucker</td>
+                        </tr>
+                        <tr>
+                            <td>Project Fireball</td>
+                            <td class="d-none d-xl-table-cell">01/01/2021</td>
+                            <td class="d-none d-xl-table-cell">31/06/2021</td>
+                            <td><span class="badge bg-danger">Cancelled</span></td>
+                            <td class="d-none d-md-table-cell">William Harris</td>
+                        </tr>
+                        <tr>
+                            <td>Project Wombat</td>
+                            <td class="d-none d-xl-table-cell">01/01/2021</td>
+                            <td class="d-none d-xl-table-cell">31/06/2021</td>
+                            <td><span class="badge bg-warning">In progress</span></td>
+                            <td class="d-none d-md-table-cell">William Harris</td>
+                        </tr>
+                    </tbody>
+                </table>
+                -->
+
+<!--<div class="list row">
+    <div class="col-md-6">
+        <h4>Tutorials List</h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let tutorial of tutorials; let i = index" [class.active]="i == currentIndex" (click)="setActiveTutorial(tutorial, i)">
+                {{ tutorial.title }}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentTutorial">
+            <app-detalles-proyecto (refreshList)="refreshList()" [tutorial]="currentTutorial"></app-detalles-proyecto>
+        </div>
+
+        <div *ngIf="!currentTutorial">
+            <br />
+            <p>Please click on a Tutorial...</p>
+        </div>
+    </div>
+</div>
+-->

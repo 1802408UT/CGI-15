@@ -1,0 +1,8 @@
+<div *ngIf="authService.userData as user; else showLogin">
+    Hola
+</div>
+<ng-template #showLogin>
+    <p>Please login.</p>
+    <span></span>
+    <button mat-raised-button routerLink="/login">Iniciar Sesión</button>
+</ng-template>

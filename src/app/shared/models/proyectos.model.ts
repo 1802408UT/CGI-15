@@ -1,8 +1,8 @@
 export class Proyectos {
-    id?: any;
+    id?: string;
     nombre?: string;
     descripcion?: string;
     estado?: string;
-    createdAt?: string;
-    updatedAt?: string;
+    date_log?: string;
+    date_update?: string;
   }

@@ -1,5 +1,5 @@
 <!-- Content -->
-<main class="content">
+<main class="content" *ngIf="authService.userData as user;">
     <div class="container-fluid p-0">
 
         <h1 class="h3 mb-3"><strong>Analítica</strong> Dashboard</h1>
@@ -370,6 +370,7 @@
                     </div>
     -->
         <!-- Real Use Desactivado End -->
+
 
     </div>
 </main>

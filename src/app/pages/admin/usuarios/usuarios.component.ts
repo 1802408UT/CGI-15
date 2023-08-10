@@ -37,7 +37,7 @@ export class UsuariosComponent {
       birthday: [''],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      area: ['']
+      area: [''] 
     });
    }
    submitForm() {

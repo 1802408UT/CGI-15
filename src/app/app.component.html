@@ -1,5 +1,5 @@
 <mat-drawer-container autosize>
-    <mat-drawer #drawer mode="side" opened>
+    <mat-drawer #drawer mode="side" closed>
         <!--Menu Principal-->
         <nav id="sidebar" class="sidebar js-sidebar">
             <div class="sidebar-content js-simplebar">
@@ -46,8 +46,8 @@
                             <i class="align-middle" data-feather="sliders"></i> <span class="align-middle"> Ver Proyectos</span>
                         </a>
                     </li>
-                    <li class="sidebar-item" [ngClass]="getClassForRoute('/#')">
-                        <a class="sidebar-link" routerLink="/#">
+                    <li class="sidebar-item" [ngClass]="getClassForRoute('/agregar-proyectos')">
+                        <a class="sidebar-link" routerLink="/agregar-proyectos">
                             <i class="align-middle" data-feather="sliders"></i> <span class="align-middle"> Crear Proyectos</span>
                         </a>
                     </li>
@@ -151,64 +151,62 @@
         </nav>
         <!--End Menu Principal-->
     </mat-drawer>
-
-    <div>
-        <div class="main">
-            <!-- Navbar -->
-            <mat-toolbar class="navbar navbar-expand navbar-light navbar-bg">
-                <button mat-icon-button (click)="drawer.toggle()">
+    <div class="main">
+        <!-- Navbar -->
+        <mat-toolbar *ngIf="authService.userData as user;" class="navbar navbar-expand navbar-light navbar-bg">
+            <button mat-icon-button (click)="drawer.toggle()">
              <mat-icon>sort</mat-icon>
            </button>
-                <span class="example-spacer"></span>
-                <button mat-icon-button>
+            <span class="example-spacer"></span>
+            <button mat-icon-button disabled>
                   <mat-icon matBadge="4" matBadgeColor="warn">notifications</mat-icon>
                 </button>
-                <button mat-icon-button>
+            <button mat-icon-button disabled>
                   <mat-icon>chat_bubble_outline</mat-icon>
                 </button>
-                <button mat-button [matMenuTriggerFor]="menu">
-                    <img src="assets/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall">
-                    Ivan E</button>
-                <mat-menu #menu="matMenu">
-                    <button mat-menu-item>
+            <button mat-button [matMenuTriggerFor]="menu">
+                    <img src="{{(user.photoURL) ? user.photoURL : ' assets/img/avatars/avatar.jpg'}}" class="avatar img-fluid rounded me-1" alt="Charles Hall">
+                    {{user.displayName}}
+                </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item disabled>
                         <mat-icon>perm_identity</mat-icon>
                         Perfil</button>
-                    <button mat-menu-item>
+                <button mat-menu-item disabled>
                         <mat-icon>timeline</mat-icon>
                         Analisis</button>
-                    <mat-divider></mat-divider>
-                    <button mat-menu-item>
+                <mat-divider></mat-divider>
+                <button mat-menu-item disabled>
                         <mat-icon>settings</mat-icon>
                         Ajustes</button>
-                    <button mat-menu-item>
+                <button mat-menu-item disabled>
                         <mat-icon>help_outline</mat-icon>
                         Centro de Ayuda</button>
-                    <mat-divider></mat-divider>
-                    <button mat-menu-item>
+                <mat-divider></mat-divider>
+                <button mat-menu-item (click)="Cerrar()">
                         <mat-icon>exit_to_app</mat-icon>
                         Cerrar Sesión</button>
-                </mat-menu>
-            </mat-toolbar>
-            <!-- End Navdar -->
-            <!--Router-->
-            <router-outlet></router-outlet>
-            <!--End Router-->
-            <!-- Footer -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row text-muted">
-                        <div class="col-6 text-start">
-                            <p class="mb-0">
-                                <a class="text-muted" href="https://rowan.com.mx/" target="_blank"><strong>Rowan</strong></a> &copy;
-                            </p>
-                        </div>
+            </mat-menu>
+        </mat-toolbar>
+        <!-- End Navdar -->
+        <!--Router-->
+        <router-outlet>
 
+        </router-outlet>
+        <!--End Router-->
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row text-muted">
+                    <div class="col-6 text-start">
+                        <p class="mb-0">
+                            <a class="text-muted" href="https://rowan.com.mx/" target="_blank"><strong>Rowan</strong></a> &copy;
+                        </p>
                     </div>
+
                 </div>
-            </footer>
-            <!-- End Footer -->
-        </div>
-
+            </div>
+        </footer>
+        <!-- End Footer -->
     </div>
-
 </mat-drawer-container>

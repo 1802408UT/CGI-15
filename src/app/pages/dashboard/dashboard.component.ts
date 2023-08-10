@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 export interface PeriodicElement {
   name: string;
@@ -21,7 +22,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
   displayedColumns: string[] = ['name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+
+  constructor(public authService: AuthService) {
+    console.log(this.authService.userData);
+  }
+  ngOnInit(): void {}
+
 }

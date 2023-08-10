@@ -1,5 +1,6 @@
 import {Request, Response} from 'express'
 import { Equipo } from '../entities/equipo.entity';
+import { Proyecto } from '../entities/proyecto.entity';
 
 export const createEquipo = async (req: Request,res: Response) =>{
     try {
@@ -27,6 +28,7 @@ export const createEquipo = async (req: Request,res: Response) =>{
 export const getEquipo = async (req: Request,res: Response) =>{
     try {
         const equipo = await Equipo.find();
+        const proyecto = await Proyecto.find();
         return res.json(equipo);
       } catch (error) {
         if (error instanceof Error) {
