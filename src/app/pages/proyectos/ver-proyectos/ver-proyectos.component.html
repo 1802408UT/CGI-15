@@ -46,11 +46,11 @@
                                 <mat-icon>more_vert</mat-icon>
                               </button>
                             <mat-menu #menu="matMenu">
-                                <button mat-menu-item routerLink="proyectos/detalles-proyectos-{{ student.$key }}">
+                                <button mat-menu-item (click)="addToCart(element)" [routerLink]="['/proyectos', element.id]" element=items>
                                     <mat-icon>autorenew</mat-icon>
                                     <span>Actualizar</span>
                                   </button>
-                                <button mat-menu-item>
+                                <button mat-menu-item (click)="date()">
                                   <mat-icon>delete</mat-icon>
                                   <span>Eliminar</span>
                                 </button>

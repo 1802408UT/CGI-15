@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'crear-usuarios', component: UsuariosComponent, canActivate: [AuthGuard] },
   { path: 'usuarios', component: UsuariosListComponent},
   { path: 'ver-proyectos', component: VerProyectosComponent},
-  { path: 'proyectos/detalles-proyectos-:id', component: DetallesProyectoComponent},
+  { path: 'proyectos/:id', component: DetallesProyectoComponent},
   { path: 'agregar-proyectos', component: AgregarProyectoComponent}
 ];
 

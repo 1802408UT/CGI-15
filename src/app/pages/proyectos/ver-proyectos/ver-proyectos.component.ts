@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ver-proyectos',
@@ -24,10 +25,11 @@ export class VerProyectosComponent implements OnInit {
   currentTutorial?: Proyectos;
   currentIndex = -1;
   title = '';
-
+  items:any[];
  
 
-  constructor(private tutorialService: ProyectoServicesService) {
+  constructor(private tutorialService: ProyectoServicesService, 
+    private route: ActivatedRoute) {
   }
   
 
@@ -62,6 +64,13 @@ export class VerProyectosComponent implements OnInit {
 
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
+  }
+  addToCart(element: any): void {
+    
+  }
+  get(){
+    const data = this.tutorialService.getItems();
+    console.log(data);
   }
 }
 /*

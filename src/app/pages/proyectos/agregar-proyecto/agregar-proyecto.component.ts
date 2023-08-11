@@ -35,7 +35,6 @@ export class AgregarProyectoComponent implements OnInit {
       this.tutorialService.create(usuarioData).then(() => {
         console.log('Exito Proyecto');
         this.submitted = true;
-
     });
   }
 }
