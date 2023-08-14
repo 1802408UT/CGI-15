@@ -7,6 +7,10 @@ import { Proyectos } from 'src/app/shared/models/proyectos.model';
 import { ProyectoServicesService } from 'src/app/services/proyecto.services.service';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+//@angular/fire/compat/firestore
+import { AngularFirestore } from '@angular/fire/compat/firestore'; 
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-detalles-proyecto',
@@ -14,18 +18,28 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./detalles-proyecto.component.scss']
 })
 export class DetallesProyectoComponent implements OnInit {
-  
-  
+  proyecto: any;
+  documento: any;
   tutorials?: Proyectos[];
   items: any;
+  current: any;
 
-  constructor(private route: ActivatedRoute,private tutorialService: ProyectoServicesService) {
-    this.items = tutorialService.getItems()
+  constructor(private route: ActivatedRoute,
+    private firestore: AngularFirestore, private proyectoServicesService: ProyectoServicesService) {
+    
    }
 
 
-  ngOnInit(): void {
-    }
+   ngOnInit() {
+    const id = this.route.snapshot.params.id; // Suponemos que el parámetro se llama "id"
+    console.log(id);
+    const coleccion = '/proyecto'; // Reemplaza con el nombre de tu colección
+    this.proyectoServicesService.getDocumentoPorId(coleccion, id).subscribe((documento) => {
+      this.proyecto = documento;
+      console.log(this.proyecto);
+      console.log(documento);
+    });
+  }
     //  this.route.paramMap.subscribe(params => this.proyectos = Proyectos[this.x]);
     //this.retrieveTutorials();
     

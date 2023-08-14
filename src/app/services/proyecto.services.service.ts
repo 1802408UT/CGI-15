@@ -23,17 +23,6 @@ export class ProyectoServicesService {
   getAll(): AngularFirestoreCollection<Proyectos> {
     return this.proyectosRef;
   }
-  /*
-  getProyectoById(id: string): AngularFirestoreCollection<Proyectos> {
-    return this.proyectosRef.ref.id;
-  }
-*/
-  /*getbyId(id: number): AngularFirestoreCollection<Proyectos> {
-    this.proyectosRef = this.db.collection('/proyecto', ref => ref.where('id', '==', id));
-    // Create a query against the collection.
-    //const q = query(this.proyectosRef, where("state", "==", "CA"));
-    return this.proyectosRef;
-  }*/
 
   create(proyectos: Proyectos): any {
     return this.proyectosRef.add({ ...proyectos });
@@ -42,9 +31,23 @@ export class ProyectoServicesService {
   update(id: string, data: any): Promise<void> {
     return this.proyectosRef.doc(id).update(data);
   }
-
+  //Funcional
   delete(id: string): Promise<void> {
+    //window.location.reload();
+    console.log(id);
     return this.proyectosRef.doc(id).delete();
+  }
+
+  // Funcional Firestore Proyectos
+
+  getDocumentoPorId(coleccion: string, id: string): Observable<any> {
+    // Accedemos al documento en la colección especificada utilizando su ID
+    return this.db.collection(coleccion).doc(id).valueChanges();
+  }
+
+  agregarDocumento(coleccion: string, id: string, datos: any): Promise<void> {
+    // Agregamos el documento con el ID personalizado
+    return this.db.collection(coleccion).doc(id).set(datos);
   }
 
   // Items For Search

@@ -1,2 +1,68 @@
-Func <br>
-<h1>{{items.id}}</h1>
+<main class="content">
+    <div class="container-fluid p-0">
+
+        <h1 class="h3 mb-3" *ngIf="proyecto">Proyecto ID: {{proyecto.id}}</h1>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0"><a class="card-title" routerLink="/Dasboard"> Inicio </a>><a class="card-title" routerLink="/ver-proyectos"> Proyecto </a>> {{proyecto.nombre}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list row">
+                            <div class="col-md-6">
+                                <h4>Proyecto Lista</h4>
+                                <ul class="list-group">
+                                    <!--<li class="list-group-item" *ngFor="let tutorial of tutorials; let i = index" [class.active]="i == currentIndex" (click)="setActiveTutorial(tutorial, i)">-->
+                                    <li class="list-group-item">
+                                        Materiales
+                                    </li>
+                                    <li class="list-group-item">
+                                        Actividades
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div *ngIf="current">
+                                    <!--Vista de los materiales o Actividades-->
+                                    <!--<app-detalles-proyecto (refreshList)="refreshList()" [tutorial]="currentTutorial"></app-detalles-proyecto>-->
+                                </div>
+
+                                <div *ngIf="!current">
+                                    <br />
+                                    <p>Seleccione algun material o actividad para visualizar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+
+<!--
+    <div class="list row">
+    <div class="col-md-6">
+        <h4>Tutorials List</h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let tutorial of tutorials; let i = index" [class.active]="i == currentIndex" (click)="setActiveTutorial(tutorial, i)">
+                {{ tutorial.title }}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentTutorial">
+            <app-detalles-proyecto (refreshList)="refreshList()" [tutorial]="currentTutorial"></app-detalles-proyecto>
+        </div>
+
+        <div *ngIf="!currentTutorial">
+            <br />
+            <p>Please click on a Tutorial...</p>
+        </div>
+    </div>
+</div>
+-->

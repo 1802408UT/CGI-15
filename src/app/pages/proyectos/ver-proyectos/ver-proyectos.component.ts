@@ -26,8 +26,8 @@ export class VerProyectosComponent implements OnInit {
   currentIndex = -1;
   title = '';
   items:any[];
- 
 
+ 
   constructor(private tutorialService: ProyectoServicesService, 
     private route: ActivatedRoute) {
   }
@@ -71,6 +71,10 @@ export class VerProyectosComponent implements OnInit {
   get(){
     const data = this.tutorialService.getItems();
     console.log(data);
+  }
+  delete(id){
+    console.log(id);
+    this.tutorialService.delete(id);
   }
 }
 /*

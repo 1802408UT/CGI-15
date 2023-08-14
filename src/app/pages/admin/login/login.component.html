@@ -19,11 +19,11 @@
                             <form>
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
-                                    <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" matInput [formControl]="dataemail" required>/>
+                                    <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" matInput [formControl]="dataemail" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Password</label>
-                                    <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" matInput [formControl]="datapassword" required>/>
+                                    <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your password" matInput [formControl]="datapassword" required>
                                     <small>
     <a href="#">Forgot password?</a>
   </small>
@@ -37,9 +37,12 @@
   </label>
                                 </div>
                                 <div class="text-center mt-3">
-                                    <a class="btn btn-lg btn-primary" mat-raised-button color="primary" type="submit" (click)="login()">Sign in</a>
-                                    <a class="btn btn-lg btn-primary" mat-raised-button color="primary" type="submit" (click)="AuthLogin()">Google</a>
+                                    <a class="btn btn-lg btn-primary btn-a" mat-raised-button color="primary" type="submit" (click)="login()">Iniciar Sesión</a>
                                     <!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
+                                </div>
+                                <div class="text-center mt-3">
+                                    <a class="btn btn-lg btn-primary google-login-button" mat-raised-button color="primary" type="submit" (click)="AuthLogin()">
+                                        <i class="fa fa-google"></i> Iniciar sesión con Google</a>
                                 </div>
                             </form>
                         </div>

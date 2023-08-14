@@ -2,7 +2,7 @@
     <div class="container-fluid p-0">
 
         <h1 class="h3 mb-3"><strong>Proyectos</strong></h1>
-        <a mat-raised-button>Agregar-proyectos</a>
+        <button mat-raised-button routerLink="/agregar-proyectos">Agregar-proyectos</button>
         <div class="das container-fluid">
             <table mat-table [dataSource]="dataSource" martSort class="mat-elevation-z8 table table-hover my-0">
 
@@ -25,7 +25,7 @@
 
                 <ng-container matColumnDef="estado">
                     <th mat-header-cell *matHeaderCellDef> Activo </th>
-                    <td mat-cell *matCellDef="let element"><span class="badge" [ngClass]="{'bg-success': element.estado=== 'Activo', 'bg-warning' : element.estado === 'activo' }">{{element.estado}}</span></td>
+                    <td mat-cell *matCellDef="let element"><span class="badge" [ngClass]="{'bg-success': element.estado=== 'Activo', 'bg-warning' : element.estado === 'Inactivo' }">{{element.estado}}</span></td>
                 </ng-container>
 
                 <ng-container matColumnDef="date_log">
@@ -46,11 +46,11 @@
                                 <mat-icon>more_vert</mat-icon>
                               </button>
                             <mat-menu #menu="matMenu">
-                                <button mat-menu-item (click)="addToCart(element)" [routerLink]="['/proyectos', element.id]" element=items>
-                                    <mat-icon>autorenew</mat-icon>
-                                    <span>Actualizar</span>
+                                <button mat-menu-item [routerLink]="['/proyectos', element.id]" element=items>
+                                    <mat-icon>login</mat-icon>
+                                    <span>Entrar</span>
                                   </button>
-                                <button mat-menu-item (click)="date()">
+                                <button mat-menu-item (click)="delete(element.id)">
                                   <mat-icon>delete</mat-icon>
                                   <span>Eliminar</span>
                                 </button>
