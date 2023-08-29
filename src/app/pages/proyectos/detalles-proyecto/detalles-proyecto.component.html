@@ -1,13 +1,20 @@
 <main class="content">
     <div class="container-fluid p-0">
 
-        <h1 class="h3 mb-3" *ngIf="proyecto">Proyecto ID: {{proyecto.id}}</h1>
-
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title mb-0"><a class="card-title" routerLink="/Dasboard"> Inicio </a>><a class="card-title" routerLink="/ver-proyectos"> Proyecto </a>> {{proyecto.nombre}}</h5>
+                        <div class="row">
+                            <div class="col-1">
+                                <img class="avatar img-fluid rounded me-1" alt="avatar2" src="https://icon-library.com/images/img-icon/img-icon-22.jpg" />
+                            </div>
+                            <div class="col-6">
+                                <h1 class="h3 mb-3" *ngIf="proyecto">Proyecto ID: {{proyecto.id}}</h1>
+                                <h5 class="card-title mb-0"><a class="card-title" routerLink="/Dasboard"> Inicio </a>><a class="card-title" routerLink="/ver-proyectos"> Proyecto </a>> {{proyecto.nombre}}</h5>
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
                     </div>
                     <div class="card-body">
                         <div class="list row">
